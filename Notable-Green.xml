@@ -1537,9 +1537,9 @@ margin-$startSide:44px
 }
 .hamburger-section{
 -webkit-box-flex:1;
--webkit-flex:1 0 auto;
--ms-flex:1 0 auto;
-flex:1 0 auto;
+-webkit-flex: 1 1 initial;
+-ms-flex: 1 1 initial;
+flex: 1 1;
 margin-left:44px;
 -webkit-box-ordinal-group:3;
 -webkit-order:2;
