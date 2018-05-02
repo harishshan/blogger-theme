@@ -1,0 +1,156 @@
+<div dir="ltr" style="text-align: left;" trbidi="on">
+<script>
+var blogId = '';
+var contactFormMessageSendingMsg ='Sending...';
+var contactFormMessageSentMsg = 'Your message has been sent.';
+var contactFormMessageNotSentMsg = 'Message could not be sent. Please try again later.';
+var contactFormInvalidEmailMsg = 'A valid email is required.'
+var contactFormEmptyMessageMsg ='Message field cannot be empty.';
+var widgetLoaded=false;
+function sendEmailMsg() {
+ if(widgetLoaded== false) {
+  _WidgetManager._RegisterWidget('_ContactFormView', 
+ new _WidgetInfo('ContactForm1', 'sidebar', null, 
+  document.getElementById('ContactForm1'), 
+  {'contactFormMessageSendingMsg': contactFormMessageSendingMsg , 'contactFormMessageSentMsg': contactFormMessageSentMsg , 
+   'contactFormMessageNotSentMsg': contactFormMessageNotSentMsg , 'contactFormInvalidEmailMsg': contactFormInvalidEmailMsg , 
+   'contactFormEmptyMessageMsg': contactFormEmptyMessageMsg , 'title': 'Contact Form', 'blogId': blogId, 
+   'contactFormNameMsg': 'Name', 
+   'contactFormEmailMsg': 'Email', 'contactFormMessageMsg': 'Message', 'contactFormSendMsg': 'Send', 
+   'submitUrl': 'https://www.blogger.com/contact-form.do'}, 'displayModeFull'));
+  widgetLoaded=true;
+  document.getElementById('ContactForm1_contact-form-submit').click();
+ }
+ return true;
+}
+</script>
+<style>
+input { 
+  margin-bottom:10px;
+}
+h2 {
+  padding:18px 0 18px 0;
+  font-size: 1.4em;
+}
+.head {
+  -webkit-border-radius:6px 6px 0px 0px;
+  -moz-border-radius:6px 6px 0px 0px;
+  border-radius:6px 6px 0px 0px;
+  background-color:#2ABCA7;
+  color:#FAFAFA;
+}
+textarea {
+  height:100px;
+  margin-bottom:10px;
+}
+input:first-of-type {
+  margin-top:35px;
+}
+input, textarea {
+  font-size: 1em;
+  padding: 15px 10px 10px;
+  font-family: 'Source Sans Pro',arial,sans-serif;
+  border: 1px solid #cecece;
+  background: #d7d7d7;
+  color:#FAFAFA;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+}
+::-webkit-input-placeholder {
+   color: #FAFAFA;
+}
+:-moz-placeholder {
+   color: #FAFAFA;  
+}
+::-moz-placeholder {
+   color: #FAFAFA; 
+}
+:-ms-input-placeholder {  
+   color: #FAFAFA;  
+}
+.contact-form-button-submit {
+  margin-top:15px;
+  margin-bottom:25px;
+  background-color:#2ABCA7;
+  padding: 12px 45px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  border: 1px solid #2ABCA7;
+  -webkit-transition: .5s;
+  transition: .5s;
+  display: inline-block;
+  cursor: pointer;
+  width:30%;
+  color:#fff;
+}
+.contact-form-button-submit:hover, .contact-form-button-submit:hover {
+  background:#19a08c;
+}
+label.error {
+    font-family:'Source Sans Pro',arial,sans-serif;
+    font-size:1em;
+    display:block;
+    padding-top:10px;
+    padding-bottom:10px;
+    background-color:#d89c9c;
+    width: 80%;
+    margin:auto;
+    color: #FAFAFA;
+    -webkit-border-radius:6px;
+    -moz-border-radius:6px;
+    border-radius:6px;
+}
+/* media queries */
+@media (max-width: 700px) {
+  label.error {
+    width: 90%;
+  }
+  input, textarea {
+    width: 90%;
+  }
+  .contact-form-button-submit {
+    width:90%;
+  }
+  body {
+  padding-top:10px;
+  }  
+}
+.message {
+    font-family:'Source Sans Pro',arial,sans-serif;
+    font-size:1.1em;
+    display:none;
+    padding-top:10px;
+    padding-bottom:10px;
+    background-color:#2ABCA7;
+    width: 80%;
+    margin:auto;
+    color: #FAFAFA;
+    -webkit-border-radius:6px;
+    -moz-border-radius:6px;
+    border-radius:6px;
+}
+</style>
+<form name="contact-form">
+ <div class="container">
+  <div class="head">
+   <h2>✉ Say Hello</h2>
+  </div>
+  <input class="contact-form-name" id="ContactForm1_contact-form-name" name="name" placeholder="Name" type="text" /><br />
+  <input class="contact-form-email" id="ContactForm1_contact-form-email" name="email" placeholder="Email" type="email" /><br />
+  <textarea class="contact-form-email-message" id="ContactForm1_contact-form-email-message" name="email-message" placeholder="Message" type="text"></textarea><br />
+  <div class="message">Message Sent</div>
+  <button class="contact-form-button contact-form-button-submit" id="ContactForm1_contact-form-submit" onclick="sendEmailMsg()" type="submit">Send!</button><br />
+  <div class="contact-form-error-message" id="ContactForm1_contact-form-error-message"></div>
+  <div class="contact-form-success-message" id="ContactForm1_contact-form-success-message"></div>
+ </div>
+</form>
+</div>
